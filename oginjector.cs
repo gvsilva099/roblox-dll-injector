@@ -182,7 +182,7 @@ namespace proinjector
             Console.WriteLine("Module attached successfully.");
 
             ShowWindow(Process.GetCurrentProcess().MainWindowHandle, 6); // SW_FORCEMINIMIZE
-
+             console. write("Injection done!");
             Thread.Sleep(999999); // do whatever u want after here but the app needs to stay open maybe you can free console so the app stays open but in background process
         }
     }
