@@ -141,6 +141,8 @@ namespace proinjector
                 }
             }).Start();
 
+            console.WriteLine("started injection");
+
             int processId = GetProcessId("RobloxPlayerBeta.exe");
             IntPtr processHandle = OpenProcess(PROCESS_ALL_ACCESS, false, processId);
 
@@ -164,7 +166,7 @@ namespace proinjector
             if (threadId == 0)
                 Console.WriteLine("Window thread ID is invalid.");
 
-            IntPtr targetModule = LoadLibraryA("nyx.dll"); // dll name you want to inject
+            IntPtr targetModule = LoadLibraryA("DLLmain.dll"); // dll name you want to inject
             if (targetModule == IntPtr.Zero)
                 Console.WriteLine("Failed to find module.");
 
@@ -182,7 +184,7 @@ namespace proinjector
             Console.WriteLine("Module attached successfully.");
 
             ShowWindow(Process.GetCurrentProcess().MainWindowHandle, 6); // SW_FORCEMINIMIZE
-
+            console.Write("Inejection done!")
             Thread.Sleep(999999); // do whatever u want after here but the app needs to stay open maybe you can free console so the app stays open but in background process
         }
     }
